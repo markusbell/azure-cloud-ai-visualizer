@@ -90,7 +90,7 @@ jobs:
           ./deploy/deploy_to_azure.ps1 `
             -SubscriptionId "$env:AZURE_SUBSCRIPTION_ID" `
             -ResourceGroupName "$env:RESOURCE_GROUP_NAME" `
-            -Location "westeurope" `
+            -Location "austriaeast" `
             -FrontendImage "$env:ACR_NAME.azurecr.io/${{ env.FRONTEND_IMAGE }}:latest" `
             -BackendImage "$env:ACR_NAME.azurecr.io/${{ env.BACKEND_IMAGE }}:latest" `
             -AcrName "$env:ACR_NAME"
