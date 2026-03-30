@@ -1,6 +1,6 @@
 Param(
-  [string]$ResourceGroup = "myResourceGroup",
-  [string]$AcrName = "myacr",
+  [string]$ResourceGroup = "VSE-AzureArchitectVisualizer-RG",
+  [string]$AcrName = "VSEAtAzViusualizerContReg",
   [string]$FrontendImage = "$($AcrName).azurecr.io/myrepo-frontend:latest",
   [string]$BackendImage = "$($AcrName).azurecr.io/myrepo-backend:latest"
 )
