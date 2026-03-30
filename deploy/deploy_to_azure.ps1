@@ -109,3 +109,4 @@ az webapp config container set `
   -o none
 
 Write-Host "Deployment initiated. Check Azure Portal or use 'az webapp show' to inspect apps." -ForegroundColor Green
+    
