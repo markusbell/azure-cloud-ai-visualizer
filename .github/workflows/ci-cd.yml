@@ -96,7 +96,7 @@ jobs:
       - name: Deploy to Azure via deploy_to_azure.ps1
         shell: pwsh
         run: |
-          ./deploy_to_azure.ps1 `
+          ./deploy/deploy_to_azure.ps1 `
             -SubscriptionId "$env:AZURE_SUBSCRIPTION_ID" `
             -ResourceGroupName "${{ env.RESOURCE_GROUP_NAME }}" `
             -Location "westeurope" `
