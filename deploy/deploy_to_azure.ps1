@@ -1,3 +1,4 @@
+
 <# Original script with hardcoded values, refactored to use parameters for better reusability and flexibility. The script creates an Azure Resource Group, an App Service Plan, and two Web Apps for frontend and backend, configuring them to use container images from a specified Azure Container Registry (ACR). 
 Param(
   

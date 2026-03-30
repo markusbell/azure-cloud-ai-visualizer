@@ -1,4 +1,4 @@
-name: CI/CD - Build and Push
+name: CI/CD - Build and Push Docker Images to ACR and Deploy to Azure
 
 on:
   push:
