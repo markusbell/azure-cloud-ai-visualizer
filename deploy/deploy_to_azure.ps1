@@ -90,7 +90,7 @@ try {
   }
 }
 catch {
-  Write-Host "Error retrieving ACR info for $AcrName: $_" -ForegroundColor Red
+  Write-Host ("Error retrieving ACR info for {0}: {1}" -f $AcrName, $_) -ForegroundColor Red
 }
 
 # Frontend Web App erstellen / konfigurieren
