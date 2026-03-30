@@ -1,16 +1,20 @@
-# Frontend Dockerfile for Vite React app
 # Build stage
 FROM node:20-alpine AS build
 WORKDIR /app
 
-# nur package* vorab kopieren, damit Layer gecacht wird
+# Copy only package files first (better caching)
 COPY frontend/package*.json ./
-RUN npm ci
 
-# danach restlichen Code kopieren
-COPY frontend ./
-RUN npm run build
+# Install deps
+RUN npm install
 
+# Copy the actual app
+COPY frontend .
+
+# Build
+RUN npm run build --verbose
+
+# Production stage
 FROM nginx:stable-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
