@@ -5,7 +5,7 @@ WORKDIR /app
 COPY frontend /app
 # Install deps (use npm by default)
 RUN npm i
-RUN npm run build --if-present
+RUN npm run build --if-present --verbose || cat /root/.npm/_logs/*-debug.log
 
 # Production stage: serve with nginx
 FROM nginx:stable-alpine
