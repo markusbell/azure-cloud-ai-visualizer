@@ -17,7 +17,7 @@ env:
   
   #ACR 
   ACR_NAME: ${{ secrets.ACR_NAME }}
-  ACR_LOGIN_SERVER: ${{ secrets.ACR_LOGIN_SERVER }}
+#  ACR_LOGIN_SERVER: ${{ secrets.ACR_LOGIN_SERVER }}
   
 jobs:
   build-and-push:
@@ -31,6 +31,7 @@ jobs:
     env:
       FRONTEND_IMAGE: ${{ github.repository }}-frontend
       BACKEND_IMAGE: ${{ github.repository }}-backend
+      ACR_LOGIN_SERVER: ${{ secrets.ACR_NAME }}.azurecr.io
     steps:
       - name: Checkout
         uses: actions/checkout@v4
