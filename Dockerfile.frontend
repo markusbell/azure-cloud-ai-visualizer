@@ -2,15 +2,17 @@
 # Build stage
 FROM node:20-alpine AS build
 WORKDIR /app
-COPY frontend /app
-# Install deps (use npm by default)
-RUN npm i
-RUN npm run build --if-present --verbose || cat /root/.npm/_logs/*-debug.log
 
-# Production stage: serve with nginx
+# nur package* vorab kopieren, damit Layer gecacht wird
+COPY frontend/package*.json ./
+RUN npm ci
+
+# danach restlichen Code kopieren
+COPY frontend ./
+RUN npm run build
+
 FROM nginx:stable-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-# Optional: copy custom nginx config
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
