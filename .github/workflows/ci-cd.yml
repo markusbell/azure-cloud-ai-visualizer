@@ -47,7 +47,12 @@ jobs:
       # 2) Login bei ACR mit Azure-Credentials (kein User/Pass)
       - name: Log in to ACR using Azure credentials
         run: |
+          echo "Logging in to ACR: $ACR_NAME"
           az acr login --name $ACR_NAME
+          echo "Docker config after login:"
+          cat ~/.docker/config.json || echo "No docker config"
+
+
 
       # 3) Docker Buildx Setup
       - name: Set up QEMU
